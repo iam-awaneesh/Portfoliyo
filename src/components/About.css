@@ -1,0 +1,28 @@
+/* About.css */
+#about {
+    background-color: #fef5e7;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  #about:hover {
+    transform: translateY(-5px);
+  }
+  
+  #about h2 {
+    color: #e67e22;
+  }
+  
+  #about p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  #resume{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: 500;
+    font-style: initial;
+  }

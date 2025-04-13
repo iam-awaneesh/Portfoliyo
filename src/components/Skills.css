@@ -1,0 +1,31 @@
+/* Skills.css */
+#skills {
+    background-color: #e8f8ff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .skill-item {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .skill-item:hover {
+    /* background-color: #2980b9; */
+    background-color: #f8f8a1;
+    transition: background-color 0.3s;
+    color: black;
+  }
+  
