@@ -12,7 +12,17 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => {
+    const newMenuState = !isMenuOpen;
+    setIsMenuOpen(newMenuState);
+    
+    // Prevent body scroll when menu is open
+    if (newMenuState) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+  };
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -20,6 +30,8 @@ function App() {
       element.scrollIntoView({ behavior: 'smooth' });
       setActiveSection(sectionId);
       setIsMenuOpen(false);
+      // Remove body scroll prevention when menu closes
+      document.body.classList.remove('menu-open');
     }
   };
 
