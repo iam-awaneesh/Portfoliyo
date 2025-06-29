@@ -10,6 +10,7 @@ import profilePic from './assets/ProfileB.jpg';
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -24,9 +25,13 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Update active section only
+      // Check if scrolled
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 50);
+
+      // Update active section
       const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const scrollPositionWithOffset = scrollPosition + 100;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -34,7 +39,7 @@ function App() {
           const offsetTop = element.offsetTop;
           const offsetHeight = element.offsetHeight;
           
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (scrollPositionWithOffset >= offsetTop && scrollPositionWithOffset < offsetTop + offsetHeight) {
             setActiveSection(section);
             break;
           }
@@ -52,7 +57,7 @@ function App() {
   return (
     <div className="App">
       {/* Navigation - Always visible and fixed */}
-      <nav className="navbar">
+      <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
         <div className="nav-container">
           <div className="nav-logo">
             <img src={profilePic} alt="Profile" className="nav-profile-pic" />
